@@ -5,11 +5,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import patientService from '@/services/patient-service';
 
 @Component
 export default class ConnectPlusPatientInfo extends Vue {
+  @Prop() private patientId!: string;
+  @Prop() private centerId!: string;
 
+  async mounted() {
+    const { data } = await patientService.getPatient(this.centerId, this.patientId);
+    console.dir(data);
+  }
 }
 </script>
 

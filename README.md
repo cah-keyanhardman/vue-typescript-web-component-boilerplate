@@ -40,7 +40,8 @@ Properties can be accessed/modified using `kebab-case` through html, and `camelC
 
 | Prop                  | Description                                                                                        |
 |-----------------------|----------------------------------------------------------------------------------------------------|
-| placeholder           |                                                                                                    |
+| patientId             | Encrypted patient id                                                                               |
+| centerId              | Center Id                                                                                          |
 
 #### Setting props programmatically 
 The parent application will most likely need to programmatically control the configuration of the web components. This can be done by selecting a component using a query selector and setting the properties.  Example client script provided - `public/example-client-script.js`

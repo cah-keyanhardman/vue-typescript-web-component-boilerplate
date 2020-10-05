@@ -3,6 +3,9 @@ const webpack = require('webpack');
 module.exports = {
     css: { extract: false },
     filenameHashing: false,
+    devServer: {
+        proxy: 'http://localhost'
+    },
     productionSourceMap: process.env.NODE_ENV !== 'production',
     // transpileDependencies: [ 'vue-material' ],
     configureWebpack: {

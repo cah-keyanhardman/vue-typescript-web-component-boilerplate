@@ -1,0 +1,45 @@
+@import '~@cahcommercial/weld-styles/main.scss';
+
+// weld expected rem is 10px, connect rem is 16px, do the math;
+$scale-factor: 10 / 16;
+
+// css var overrides (all rem values taken directly from `weld-styles` scss)
+:root {
+  //-------------------//
+  // SPACING SIZES
+  // all paddings, margins, placements, etc should use one of these variables (or auto)
+  //-------------------//
+  --weld-spacing-xs: #{.5rem * $scale-factor};
+  --weld-spacing-sm: #{1rem * $scale-factor};
+  --weld-spacing-md: #{2rem * $scale-factor};
+  --weld-spacing-lg: #{3rem * $scale-factor};
+  --weld-spacing-xl: #{4rem * $scale-factor};
+  // grid gutter is hte same as weld-spacing-md
+  --weld-grid-gutter: #{2rem * $scale-factor};
+
+  //-------------------//
+  // FONT SIZES
+  //-------------------//
+  --weld-font-size-sm: #{1.2rem * $scale-factor};
+  --weld-font-size-md: #{1.4rem * $scale-factor}; //default
+  --weld-font-size-icons-md: #{1.8rem * $scale-factor}; //default
+  --weld-font-size-icons-lg: #{2.1rem * $scale-factor};
+  --weld-font-size-icons-xl: #{2.4rem * $scale-factor};
+  --weld-font-size-heading-sm: #{1.6rem * $scale-factor}; //h5
+  --weld-font-size-heading-md: #{1.8rem * $scale-factor}; //h4 (default)
+  --weld-font-size-heading-lg: #{2.1rem * $scale-factor}; //h3
+  --weld-font-size-heading-xl: #{2.4rem * $scale-factor}; //h2
+  --weld-font-size-heading-xxl: #{3rem * $scale-factor}; //h1
+
+  //-------------------//
+  // FORMS
+  //-------------------//
+  --weld-input-border-size: #{.1rem * $scale-factor};
+  --weld-switch-slider-width: #{5rem * $scale-factor};
+  --weld-switch-dot-width: calc(var(--weld-spacing-md) - #{.6rem * $scale-factor}); //1.4rem
+  --weld-switch-text-offset: #{.2rem * $scale-factor};
+  --weld-switch-slider-offset: #{.4rem * $scale-factor};
+  --weld-switch-dot-align: #{0.25rem * $scale-factor};
+
+  --weld-tab-border-width: #{0.2rem * $scale-factor};
+}

@@ -1,0 +1,72 @@
+name: Continuous Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use NodeJS ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Install dependencies and test
+        run: npm cit
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Install dependencies
+        run: npm ci
+      - name: Setup Git user
+        run: |
+          git config --global user.name "connect-plus-patient-info automation"
+          git config --global user.email "keyan.hardman@cardinalhealth.com"
+      - name: Build
+        run: npm run build
+      - name: Compress build
+        run: tar -cvzf package.tar.gz dist
+      - name: Publish package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish package.tar.gz
+      - name: Get version
+        id: get_version
+        run: |
+          version=$(node -e "console.log(require('./package.json').version);")
+          echo "::set-output name=version::v$version"
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: Release ${{ steps.get_version.outputs.version }}
+          draft: false
+          prerelease: false
+      - name: Append release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./package.tar.gz
+          asset_name: package.tar.gz
+          asset_content_type: application/x-compressed

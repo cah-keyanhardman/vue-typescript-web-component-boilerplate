@@ -1,17 +1,18 @@
 {
   "name": "@cahcommercial/connect-plus-patient-info-ui",
   "description": "Connect patient info web component",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cahcommercial/connect-plus-patient-info"
+    "url": "git+https://github.com/cahcommercial/connect-plus-patient-info-ui"
   },
   "author": {
     "name": "Connect Plus Tiger Team",
     "email": "keyan.hardmans@cardinalhealth.com"
   },
   "license": "UNLICENSED",
-  "homepage": "https://github.com/cahcommercial/connect-plus-patient-info#readme",
+  "homepage": "https://github.com/cahcommercial/connect-plus-patient-info-ui#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && cp package.json dist && cp README.md dist && rm dist/index.html",

@@ -26,7 +26,7 @@ export interface Patient {
   changeTime: Date;
   enterpriseChangeTime: Date;
   outcomesTermDate: Date;
-  outcomesEligibilityDate: Date;
+  outcomesEligibilityDate: string;
   percentFillAtPharmacy: number;
   primaryPharmacy: boolean;
   policyName: string;

@@ -1,8 +1,10 @@
 {
   "name": "@cahcommercial/connect-plus-patient-info-ui",
   "description": "Connect patient info web component",
-  "version": "0.2.1",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "version": "0.2.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cahcommercial/connect-plus-patient-info-ui"
@@ -15,7 +17,7 @@
   "homepage": "https://github.com/cahcommercial/connect-plus-patient-info-ui#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cp package.json dist && cp README.md dist && rm dist/index.html",
+    "build": "vue-cli-service build && cp package.json dist && cp README.md dist && rm dist/index.html && rm -rf dist/weld-elements",
     "test": "vue-cli-service test:unit",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
@@ -24,11 +26,11 @@
     "@cahcommercial/weld-styles": "^11.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "document-register-element": "^1.14.3",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^8.4.2",
-    "document-register-element": "^1.14.3",
-    "vue-custom-element": "^3.2.14"
+    "vue-custom-element": "^3.2.14",
+    "vue-property-decorator": "^8.4.2"
   },
   "peerDependencies": {
     "@cahcommercial/weld-elements": "^11.1.2"

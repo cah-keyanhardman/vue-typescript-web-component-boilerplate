@@ -8,8 +8,12 @@
       <div v-for="condition in conditions" :key="condition.id">
         {{condition.attributes.name}}
       </div>
+      <div @click="showModal = true">Add condition</div>
     </div>
     <div v-else class="weld-skeleton"></div>
+    <Modal title="hi" :show.sync="showModal">
+      Hi there
+    </Modal>
   </div>
 </template>
 
@@ -17,12 +21,14 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { IncludedAttribute } from '@/types/interfaces/MpiPatient';
 import utils from '@/utils';
+import Modal from '@/components/Modal.vue';
 
-@Component
+@Component({ components: { Modal } })
 export default class Conditions extends Vue {
   @Prop() private conditions!: IncludedAttribute;
   @Prop() private loaded!: boolean;
   @Prop() private lastModified!: string;
+  private showModal = false;
   private utils = utils;
 }
 </script>

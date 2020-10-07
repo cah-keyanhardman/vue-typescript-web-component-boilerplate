@@ -63,13 +63,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Patient } from '@/types/interfaces/Patient';
-import utils from '@/utils';
+import utils, { IndexedObj } from '@/utils';
 
 @Component
 export default class PatientInfo extends Vue {
   @Prop() private patient!: Patient;
   private utils = utils;
-  private genders = { 'M': 'Male', 'F': 'Female' };
+  private genders: IndexedObj<string> = { 'M': 'Male', 'F': 'Female' };
 
   get dateOfBirth() {
     const sections = this.patient.dateOfBirth.split('-');
@@ -81,11 +81,11 @@ export default class PatientInfo extends Vue {
     return `${formattedDob} (age ${age})`;
   }
 
-  get language() {
+  get language(): string {
     return this.patient.primaryLanguage ? this.patient.primaryLanguage : 'Unknown';
   }
 
-  get gender() {
+  get gender(): string {
     const gender = this.genders[this.patient.gender];
     return gender ? gender : 'Other';
   }

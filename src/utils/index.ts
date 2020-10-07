@@ -4,3 +4,7 @@ export default {
     return `${sections[1]}/${sections[2]}/${sections[0]}`;
   }
 };
+
+export interface IndexedObj<T> {
+  [index: string]: T;
+}

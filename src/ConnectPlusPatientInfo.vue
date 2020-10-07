@@ -47,7 +47,6 @@ export default class ConnectPlusPatientInfo extends Vue {
       this.mpiPatient = res.data;
       this.conditions = this.mpiPatient.included.filter(included => included.type === 'condition');
       this.allergies = this.mpiPatient.included.filter(included => included.type === 'allergy-occurrence');
-      console.dir(this.allergies);
       this.includedAttributesLoaded = true;
     });
   }

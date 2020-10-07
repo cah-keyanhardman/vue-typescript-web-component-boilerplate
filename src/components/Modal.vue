@@ -8,11 +8,11 @@
       </div>
 
       <div class="content">
-        <slot></slot>
+        <slot name="content"></slot>
       </div>
 
       <div class="footer">
-
+        <slot name="footer"></slot>
       </div>
     </div>
   </div>

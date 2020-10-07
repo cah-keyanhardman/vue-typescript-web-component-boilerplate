@@ -17,6 +17,10 @@
         background-color: #EEFCFB;
         cursor: pointer;
       }
+
+      &.modify {
+        color: var(--weld-color-brand-accessible);
+      }
     }
   }
 }

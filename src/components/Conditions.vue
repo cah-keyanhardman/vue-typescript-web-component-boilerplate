@@ -8,11 +8,16 @@
       <div v-for="condition in conditions" :key="condition.id">
         {{condition.attributes.name}}
       </div>
-      <div @click="showModal = true">Add condition</div>
+      <div @click="showModal = true" class="modify">+Add Condition</div>
     </div>
     <div v-else class="weld-skeleton"></div>
-    <Modal title="hi" :show.sync="showModal">
-      Hi there
+    <Modal title="Add Condition" :show.sync="showModal">
+      <template v-slot:content>
+        Hi there
+      </template>
+      <template v-slot:footer>
+        <button>Test</button>
+      </template>
     </Modal>
   </div>
 </template>

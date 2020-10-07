@@ -11,8 +11,14 @@
           {{reaction}}
         </div>
       </div>
+      <div @click="showModal = true" class="modify">+Add Allergy</div>
     </div>
     <div v-else class="weld-skeleton"></div>
+    <Modal title="Add Allergy" :show.sync="showModal">
+      <template v-slot:content>
+        Hi there
+      </template>
+    </Modal>
   </div>
 </template>
 
@@ -20,13 +26,15 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { IncludedAttribute } from '@/types/interfaces/MpiPatient';
 import utils from '@/utils';
+import Modal from '@/components/Modal.vue';
 
-@Component
+@Component({ components: { Modal } })
 export default class Allergies extends Vue {
   @Prop() private allergies!: IncludedAttribute;
   @Prop() private loaded!: boolean;
   @Prop() private lastModified!: string;
   private utils = utils;
+  private showModal = false;
 }
 </script>
 

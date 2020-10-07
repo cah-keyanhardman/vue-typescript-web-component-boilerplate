@@ -1,7 +1,7 @@
 {
   "name": "@cahcommercial/connect-plus-patient-info-ui",
   "description": "Connect patient info web component",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },

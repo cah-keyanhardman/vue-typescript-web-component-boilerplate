@@ -10,6 +10,10 @@
         <h5>{{ patient.phone }}</h5>
       </div>
       <div>
+        <h6>Gender</h6>
+        <h5>{{ gender }}</h5>
+      </div>
+      <div>
         <h6>Date of Birth</h6>
         <h5>{{ dateOfBirth }}</h5>
       </div>
@@ -45,7 +49,7 @@
         </div>
         <div>
           <h6>MTM Effective Date</h6>
-          <h5>{{ effectiveDate }}</h5>
+          <h5>{{ utils.formatDate(patient.outcomesEligibilityDate.substr(0, 10)) }}</h5>
         </div>
         <div>
           <h6>% Rx Filled at Your Pharmacy</h6>
@@ -59,10 +63,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Patient } from '@/types/interfaces/Patient';
+import utils from '@/utils';
 
 @Component
 export default class PatientInfo extends Vue {
   @Prop() private patient!: Patient;
+  private utils = utils;
+  private genders = { 'M': 'Male', 'F': 'Female' };
 
   get dateOfBirth() {
     const sections = this.patient.dateOfBirth.split('-');
@@ -78,11 +85,9 @@ export default class PatientInfo extends Vue {
     return this.patient.primaryLanguage ? this.patient.primaryLanguage : 'Unknown';
   }
 
-  get effectiveDate() {
-    const date = this.patient.outcomesEligibilityDate.substr(0, 10);
-    const sections = date.split('-');
-
-    return `${sections[1]}/${sections[2]}/${sections[0]}`;
+  get gender() {
+    const gender = this.genders[this.patient.gender];
+    return gender ? gender : 'Other';
   }
 }
 </script>

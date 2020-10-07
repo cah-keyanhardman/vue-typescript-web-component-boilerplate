@@ -48,7 +48,7 @@ Properties can be accessed/modified using `kebab-case` through html, and `camelC
 The parent application will most likely need to programmatically control the configuration of the web components. This can be done by selecting a component using a query selector and setting the properties.  Example client script provided - `public/example-client-script.js`
 
 ```javascript
-document.querySelector('connect-plus-patient-info').opts = { show: true }
+document.querySelector('connect-plus-patient-info').patientId = '123'
 ```
 
 #### Web component events

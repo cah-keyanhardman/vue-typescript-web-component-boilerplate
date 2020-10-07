@@ -7,7 +7,6 @@ module.exports = {
         proxy: 'http://localhost'
     },
     productionSourceMap: process.env.NODE_ENV !== 'production',
-    // transpileDependencies: [ 'vue-material' ],
     configureWebpack: {
         plugins: [
             new webpack.optimize.LimitChunkCountPlugin({
@@ -16,7 +15,7 @@ module.exports = {
         ],
         devtool: 'source-map',
         output: {
-            filename: 'connect-plus-patient-infojs',
+            filename: 'connect-plus-patient-info.js',
             chunkFilename: 'connect-plus-patient-info.js'
         }
     },

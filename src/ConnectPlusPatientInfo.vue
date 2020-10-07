@@ -2,7 +2,9 @@
   <div id="connect-plus-patient-info">
     <div v-if="loaded" id="connect-plus-patient-info-content" class="weld-element-styles">
       <PatientInfo :patient="patient"/>
+      <Conditions :conditions="conditions"/>
     </div>
+    <div v-else class="weld-skeleton"></div>
   </div>
 </template>
 
@@ -11,18 +13,34 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import patientService from '@/services/patient-service';
 import PatientInfo from '@/components/PatientInfo.vue';
 import { Patient } from '@/types/interfaces/Patient';
+import Conditions from '@/components/Conditions.vue';
+import { IncludedAttribute, MpiPatient } from '@/types/interfaces/MpiPatient';
 
-@Component({ components: { PatientInfo } })
+@Component({ components: { PatientInfo, Conditions } })
 export default class ConnectPlusPatientInfo extends Vue {
   @Prop() private patientId!: string;
+  @Prop() private mpi!: string;
   @Prop() private centerId!: string;
   private loaded = false;
   private patient!: Patient;
+  private mpiPatient!: MpiPatient;
+  private conditions!: IncludedAttribute[];
+  private allergies!: IncludedAttribute[];
 
-  async mounted() {
-    const { data } = await patientService.getPatient(this.centerId, this.patientId);
-    this.patient = data;
-    this.loaded = true;
+  mounted() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    patientService.getPatient(this.centerId, this.patientId).then((res) => {
+      this.patient = res.data;
+      this.loaded = true;
+    });
+    patientService.getConditionsAndAllergies(this.mpi).then((res) => {
+      this.mpiPatient = res.data;
+      this.conditions = this.mpiPatient.included.filter(included => included.type === 'condition');
+      this.allergies = this.mpiPatient.included.filter(included => included.type === 'allergy-occurrence');
+    });
   }
 }
 </script>

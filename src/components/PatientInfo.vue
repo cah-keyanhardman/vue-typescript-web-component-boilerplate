@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header weld-typeset weld-border-b weld-marg-b-md">
-      <h4 class="">{{ patient.firstName }} {{ patient.lastName }}</h4>
+      <h4>{{ patient.firstName }} {{ patient.lastName }}</h4>
       <h5>ID #{{ patient.displayId }}</h5>
     </div>
     <div class="patient-info weld-typeset weld-marg-b-md">
@@ -61,7 +61,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Patient } from '@/types/interfaces/Patient';
 
 @Component
-export default class ConnectPlusPatientInfo extends Vue {
+export default class PatientInfo extends Vue {
   @Prop() private patient!: Patient;
 
   get dateOfBirth() {

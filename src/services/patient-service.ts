@@ -7,5 +7,9 @@ export default {
   getPatient(centerId: string, patientId: string ): Promise<AxiosResponse<Patient>> {
     patientId = btoa(decodeURIComponent(patientId));
     return axios.get(`/connectservices/center/${centerId}/patient/${patientId}`, this.config);
+  },
+
+  getConditionsAndAllergies(mpi: string) {
+    return axios.get(`/rest/services/mpi-patients/${mpi}?_${new Date().getTime()}`);
   }
 };

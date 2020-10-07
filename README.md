@@ -41,6 +41,7 @@ Properties can be accessed/modified using `kebab-case` through html, and `camelC
 | Prop                  | Description                                                                                        |
 |-----------------------|----------------------------------------------------------------------------------------------------|
 | patientId             | Encrypted patient id                                                                               |
+| mpi                   | Encrypted mpi                                                                                      |
 | centerId              | Center Id                                                                                          |
 
 #### Setting props programmatically 

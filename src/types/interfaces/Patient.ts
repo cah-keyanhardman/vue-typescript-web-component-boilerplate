@@ -1,34 +1,4 @@
-export interface Patient {
+export interface Example {
   id: number;
-  idAll: string;
-  policyId: number;
-  clientId: number;
-  firstName: string;
-  mi?: any;
-  lastName: string;
-  gender: string;
-  dateOfBirth: string;
-  address1: string;
-  address2?: any;
-  city: string;
-  state: string;
-  postalCode: string;
-  phone: string;
-  alternatePhone?: any;
-  otherInfo: string;
-  primaryLanguage?: any;
-  hicn: string;
-  newPatientId?: any;
-  alternateId?: any;
-  displayId: string;
-  cmrFlag: boolean;
-  cmrEligible: boolean;
-  changeTime: Date;
-  enterpriseChangeTime: Date;
-  outcomesTermDate: Date;
-  outcomesEligibilityDate: string;
-  percentFillAtPharmacy: number;
-  primaryPharmacy: boolean;
-  policyName: string;
-  timezoneAbbreviation?: any;
+  name: string;
 }

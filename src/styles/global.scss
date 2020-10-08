@@ -1,26 +1,3 @@
-#connect-plus-patient-info {
-  .modifiable-list {
-    &.weld-typeset h6 {
-      font-size: 12px;
-      font-weight: var(--weld-font-weight-default);
-      color: var(--weld-color-border-input);
-      float: right;
-      position: relative;
-      top: -15px;
-    }
+#my-web-component {
 
-    div {
-      line-height: 32px;
-      font-size: 16px;
-
-      &:hover {
-        background-color: #EEFCFB;
-        cursor: pointer;
-      }
-
-      &.modify {
-        color: var(--weld-color-brand-accessible);
-      }
-    }
-  }
 }

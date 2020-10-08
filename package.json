@@ -1,29 +1,28 @@
 {
-  "name": "@cahcommercial/connect-plus-patient-info-ui",
+  "name": "vue-typescript-web-component-boilerplate",
   "description": "Connect patient info web component",
-  "version": "0.2.3",
+  "version": "0.0.1",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cahcommercial/connect-plus-patient-info-ui"
+    "url": "git+https://github.com/cahcommercial/vue-typescript-web-component-boilerplate"
   },
   "author": {
-    "name": "Connect Plus Tiger Team",
+    "name": "Keyan Hardman",
     "email": "keyan.hardmans@cardinalhealth.com"
   },
   "license": "UNLICENSED",
-  "homepage": "https://github.com/cahcommercial/connect-plus-patient-info-ui#readme",
+  "homepage": "https://github.com/cahcommercial/vue-typescript-web-component-boilerplate#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cp package.json dist && cp README.md dist && rm dist/index.html && rm -rf dist/weld-elements",
+    "build": "vue-cli-service build && cp package.json dist && cp README.md dist && rm dist/index.html",
     "test": "vue-cli-service test:unit",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@cahcommercial/weld-styles": "^11.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "document-register-element": "^1.14.3",
@@ -31,9 +30,6 @@
     "vue-class-component": "^7.2.3",
     "vue-custom-element": "^3.2.14",
     "vue-property-decorator": "^8.4.2"
-  },
-  "peerDependencies": {
-    "@cahcommercial/weld-elements": "^11.1.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

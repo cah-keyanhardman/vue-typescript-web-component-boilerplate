@@ -15,8 +15,8 @@ module.exports = {
         ],
         devtool: 'source-map',
         output: {
-            filename: 'connect-plus-patient-info.js',
-            chunkFilename: 'connect-plus-patient-info.js'
+            filename: 'my-web-component.js',
+            chunkFilename: 'my-web-component.js'
         }
     },
     chainWebpack:

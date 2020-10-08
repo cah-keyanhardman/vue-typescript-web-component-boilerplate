@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import ConnectPlusPatientInfo from '@/ConnectPlusPatientInfo.vue'
+import MyWebComponent from '@/MyWebComponent.vue';
 
-describe('ConnectPlusPatientInfo.vue', () => {
+describe('MyWebComponent.vue', () => {
   it('placeholder', () => {
-    const wrapper = shallowMount(ConnectPlusPatientInfo, {})
+    const wrapper = shallowMount(MyWebComponent, {})
     expect(true).toEqual(true)
   })
 })

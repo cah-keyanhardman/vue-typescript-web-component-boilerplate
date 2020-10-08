@@ -36,7 +36,7 @@ jobs:
         run: npm ci
       - name: Setup Git user
         run: |
-          git config --global user.name "connect-plus-patient-info automation"
+          git config --global user.name "my-web-component automation"
           git config --global user.email "keyan.hardman@cardinalhealth.com"
       - name: Build
         run: npm run build
